@@ -4,13 +4,19 @@ Hola !!! Este es el inicio del curso de **Metodos Computacionales**.
 Herramientas del curso
 
 + git
-
 + GitGub
++ Pyhton
++ Markdown
++ bash
 
 y los metodos a estudiar son 
 
 1. interpolacion
-2. an 
+2. anáisis de Fourier
+3. integración y diferenciación numéricas
+4. ecuaciones diferenciales ordinarias
+5. ecuaciones diferenciales parciales
+6. Método de Montecarlo
 
 #Miércoles 27 de mayo.
 
@@ -37,11 +43,11 @@ Después usamos varios comandos útiles para manipular documentos desde la termi
 
 `git commit`
 
-+Poner los datos en git hub
++ Poner los datos en git hub
 
 `git push origin master`
 
-+Sacar datos de gib hub
++ Sacar datos de gib hub
 
 `git pull origin master`
 
@@ -83,9 +89,11 @@ Entonces con sed se hace un reemplazo
 `curl URLppagina | grep clock0 |togglesimple | sed 's/.*"twd"//g' |sed 's/<\/div>.*//g' figlet; sleep1; done`
 
 **echo**
+
 Entrar a otro computador
 `echo direcciónip`
 
 **STFP**
+
 para pasar archivos de un lugar a otro
 
