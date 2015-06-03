@@ -115,7 +115,15 @@ Todo lo que esté a la dcha de algo `sed 's/algo.*//g'`
  plot 'archivo' using 1:2 with lines #graficar con líneas
   ##Ejemplo: información sobre la expansión del universo
   
-  
+Es un archivo de Mathematica  
+Nombre----dist parsecs---velocidad
+set datafile separator ","
+**añandir cosas a  una gráfica**
+`replot blabla(por ejemplo una gráfica sobre otra)`
+
+**hacer fit**
+y(x)=m*x + b
+fit y(x) archivop using 2:3 via m, b
 
 
 
