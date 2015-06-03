@@ -106,7 +106,16 @@ http://www.exchange-rates.org/history/COP/USD/T
 Quitar html del código
 
 Quitar letras `[a-zA-Z]`
-
+Todo lo que esté a la dcha de algo `sed 's/algo.*//g'`
+ **Graficar!!**
+ 
+ gnuplot> datafile separaror "," 
+ set xdata time
+ set timefmt "%m/%d/%y"
+ plot 'archivo' using 1:2 with lines #graficar con líneas
+  ##Ejemplo: información sobre la expansión del universo
+  
+  
 
 
 
