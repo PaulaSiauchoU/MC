@@ -25,6 +25,9 @@ y los metodos a estudiar son
 En este primer día de clases vimos el programa del curso así como las herramientas básica que íbamos a utilizar en el mismos.
 Una de ellas es **GitHub**,el programa en el cual se subirán todos los trabajos en formato md, incluyendo este journal. 
 
+
+
+
 Por eso, lo primero que hicimos fue abrir una cuenta en GitHub, en mi caso, el nombre de usuario que escogí fue **PaulaSiauchoU**. A continuación, se creamos una carpeta llamada MC y en ella, este documento. También nos dieron la dirección para que accediéramos al repositorio del curso, [ github.com/ComputoCienciasUniandes/MetodosComputacionales ]
 
 Una de las ventajas de usar GitHub es que se pueden guardar y acceder a todas las versiones de un trabajo que se esté haciendo.Esto último se denomina **commit** y para acceder a la versión del proyecto se usa el comando en la terminal *Check out*. También existen otros comandos como *Working directory* que muestra todas las versiones del archivo y *Staging area*.
@@ -96,4 +99,35 @@ Entrar a otro computador
 **STFP**
 
 para pasar archivos de un lugar a otro
+
+#Miércoles 3 de junio
+Vamos a ver más ejemplos de gnuplot
+http://www.exchange-rates.org/history/COP/USD/T
+Quitar html del código
+
+Quitar letras `[a-zA-Z]`
+Todo lo que esté a la dcha de algo `sed 's/algo.*//g'`
+ **Graficar!!**
+ 
+ gnuplot> datafile separaror "," 
+ set xdata time
+ set timefmt "%m/%d/%y"
+ plot 'archivo' using 1:2 with lines #graficar con líneas
+  ###Ejemplo: información sobre la expansión del universo
+  
+Es un archivo de Mathematica  
+Nombre----dist parsecs---velocidad
+set datafile separator ","
+**añandir cosas a  una gráfica**
+`replot blabla(por ejemplo una gráfica sobre otra)`
+
+**hacer fit**
+y(x)=m*x + b
+fit y(x) archivop using 2:3 via m, b
+##Introducción a C
+comparar dos códigos, uno en bash y otro en C..mirar carpta de ejemplos
+
+En la mayoría de los casos la línea se acaba con ";"
+compilar: `gcc -o nombre.out nombre.c`
+la o sirve para que se cambie el archivo por defecto (a.out) por el de interés.
 
