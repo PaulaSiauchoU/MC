@@ -1,0 +1,3 @@
+#!/bin/bash
+
+grep 201212570 lottery.txt
