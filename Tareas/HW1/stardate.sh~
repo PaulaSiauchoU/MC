@@ -1,0 +1,15 @@
+#!/bin/bash
+a1=$((2015-$1))
+a2=$((2016-$1))
+echo "####################################"
+figlet StarDate
+echo "####################################"
+figlet $1
+echo "####################################"
+grep $1 worldhistory.tsv >rh.tsv
+sed 's/[0-9]/-/g' rh.tsv
+echo "####################################"
+echo "Look at the following stars"
+echo "RA/°  DEC/°  HIP No."
+awk -F"," '{if($10<='$a2' && $10>='$a1') {print $8,$9,$2}}' hyg.csv | head -5
+echo "####################################"
