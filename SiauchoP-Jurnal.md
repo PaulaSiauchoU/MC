@@ -25,6 +25,9 @@ y los metodos a estudiar son
 En este primer día de clases vimos el programa del curso así como las herramientas básica que íbamos a utilizar en el mismos.
 Una de ellas es **GitHub**,el programa en el cual se subirán todos los trabajos en formato md, incluyendo este journal. 
 
+
+
+
 Por eso, lo primero que hicimos fue abrir una cuenta en GitHub, en mi caso, el nombre de usuario que escogí fue **PaulaSiauchoU**. A continuación, se creamos una carpeta llamada MC y en ella, este documento. También nos dieron la dirección para que accediéramos al repositorio del curso, [ github.com/ComputoCienciasUniandes/MetodosComputacionales ]
 
 Una de las ventajas de usar GitHub es que se pueden guardar y acceder a todas las versiones de un trabajo que se esté haciendo.Esto último se denomina **commit** y para acceder a la versión del proyecto se usa el comando en la terminal *Check out*. También existen otros comandos como *Working directory* que muestra todas las versiones del archivo y *Staging area*.
@@ -96,4 +99,14 @@ Entrar a otro computador
 **STFP**
 
 para pasar archivos de un lugar a otro
+
+#Miércoles 3 de junio
+Vamos a ver más ejemplos de gnuplot
+http://www.exchange-rates.org/history/COP/USD/T
+Quitar html del código
+
+Quitar letras `[a-zA-Z]`
+
+
+
 
