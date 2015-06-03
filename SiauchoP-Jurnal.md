@@ -113,7 +113,7 @@ Todo lo que esté a la dcha de algo `sed 's/algo.*//g'`
  set xdata time
  set timefmt "%m/%d/%y"
  plot 'archivo' using 1:2 with lines #graficar con líneas
-  ##Ejemplo: información sobre la expansión del universo
+  ###Ejemplo: información sobre la expansión del universo
   
 Es un archivo de Mathematica  
 Nombre----dist parsecs---velocidad
@@ -124,6 +124,10 @@ set datafile separator ","
 **hacer fit**
 y(x)=m*x + b
 fit y(x) archivop using 2:3 via m, b
+##Introducción a C
+comparar dos códigos, uno en bash y otro en C..mirar carpta de ejemplos
 
-
+En la mayoría de los casos la línea se acaba con ";"
+compilar: `gcc -o nombre.out nombre.c`
+la o sirve para que se cambie el archivo por defecto (a.out) por el de interés.
 
