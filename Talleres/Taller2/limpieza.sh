@@ -1,6 +1,5 @@
 #!/bin/bash
 
-sed 's/\.//g' pgn.dat | sed 's/\,/\./g' pgn.dat
+sed 's/\.//g' pgn.dat | sed 's/\,/\./g' | sed 's/)//g' | sed 's/[0,9(]/\t/g'
 
-sed 's//|t[0,9]/g' pgn.dat
-sed 's/\)//\g' png.dat
+
