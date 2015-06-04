@@ -35,6 +35,19 @@ head -1 lottery.csv
 
 	* Finalmente usar `sort --field-separator=$'\t' ...`  y `head` para organizar el archivo de acuerdo al cambio porcentual y encontrar el sector con el menor cambio porcentual.
 
+**Solución**
+
+~~~
+#!/bin/bash
+
+sed 's/\.//g' pgn.dat | sed 's/\,/\./g' | sed 's/)//g' | sed 's/(/-/g' | sed 's/ [0,9]/,,&/g' >pgn2.dat
+sed 's/,,/\t/g' pgn2.dat
+sed 's/ [0,9]/,,&/g' pgn2.dat | sed 's/,,/\t/g' pgn2.dat >png.tsv
+
+#Organizar y encontrar el menor tamaño porcentual
+sort --field-separator=$'\t' png.tsv | head -1
+~~~
+
 ## gnuplot
 
 1. Haga con [Saturno](http://nssdc.gsfc.nasa.gov/planetary/factsheet/saturniansatfact.html) lo mismo que hicimos con Júpiter: limpiar el archivo llevándolo a formato `csv` y hacer una gráfica con `gnuplot` que evalúe la tercera ley de Kepler. Hay que tener especial cuidado con la columna para el periodo de rotación.
