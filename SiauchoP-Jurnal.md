@@ -134,6 +134,7 @@ la o sirve para que se cambie el archivo por defecto (a.out) por el de interés.
 # 5 de junio de 2015
 Primero se habló de los métodos de Montecarlo, (qué son), y se aplicó sobre una esfera. Coordenadas en X, Y y Z y después normalizar
 Se va a tenrr un ciclo en el que cada iteración se genera un número aleatorio en cada coordenada. Después hallar la norma del vector sobre R3, para eso se hace aritmética en C. Después se guarda un arch en csv y después se grafica con GNU plot.
+##Resolver el tercer punto del laboratorio
 Se comienza con un cógido de distribución gaussiana
 al código se le añanade librería de input y out put `#include <stdio>` 
 también hay que anadir
@@ -174,5 +175,8 @@ splot "randomsherical.csv" usind 1:2:3
 set view equal xyz
 ~~~
 
-##Resolver el tercer punto del laboratorio
+## Breve repaso de Python 
+Ver diap
+
 ##Hands on
+**Python** 
