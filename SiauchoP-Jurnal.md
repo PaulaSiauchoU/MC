@@ -131,3 +131,47 @@ En la mayoría de los casos la línea se acaba con ";"
 compilar: `gcc -o nombre.out nombre.c`
 la o sirve para que se cambie el archivo por defecto (a.out) por el de interés.
 
+# 5 de junio de 2015
+Primero se habló de los métodos de Montecarlo, (qué son), y se aplicó sobre una esfera. Coordenadas en X, Y y Z y después normalizar
+Se va a tenrr un ciclo en el que cada iteración se genera un número aleatorio en cada coordenada. Después hallar la norma del vector sobre R3, para eso se hace aritmética en C. Después se guarda un arch en csv y después se grafica con GNU plot.
+Se comienza con un cógido de distribución gaussiana
+al código se le añanade librería de input y out put `#include <stdio>` 
+también hay que anadir
+
+~~~
+int main (void)
+ double x;
+ y
+ z
+ int num = 1000;
+ int i = 1;
+ for( ; i <= num; i++)
+ {
+   x=gaussrand();
+   y
+   x
+   #calcular la norma sqrt(raiz cuad)
+   norm=sqtr(x*xy*y*+z*z)
+   x=x/norm:
+   y;
+   x;
+   #que imprima los tres y ponga una nueva línea
+   printf("%f, %f, %f/n", x, y, z);
+   }
+   
+~~~
+para compilar
+para ejecutar 
+
+Graficar:
+
+entrar a gnuplor
+
+`set datafile separator ","
+splot "randomsherical.csv" usind 1:2:3
+#Para qye sea vea bien la esfera
+set view equal xyz`
+
+
+##Resolver el tercer punto del laboratorio
+##Hands on
