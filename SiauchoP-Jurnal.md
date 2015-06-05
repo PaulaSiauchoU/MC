@@ -167,11 +167,12 @@ Graficar:
 
 entrar a gnuplor
 
-`set datafile separator ","
+~~~
+set datafile separator ","
 splot "randomsherical.csv" usind 1:2:3
 #Para qye sea vea bien la esfera
-set view equal xyz`
-
+set view equal xyz
+~~~
 
 ##Resolver el tercer punto del laboratorio
 ##Hands on
