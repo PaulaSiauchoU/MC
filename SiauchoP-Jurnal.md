@@ -180,3 +180,24 @@ Ver diap
 
 ##Hands on
 **Python** 
+
+# 9 de junio de 2015
+Para saber los estilos disponibles
+pylab inline #no se pueden hacer animaciones con esto
+estilos.style.disponible
+print estilos 
+usar un estilo : style.use(estilos[i])
+
+Para usar en una sóla gráfica:
+with xkcd(): código gŕfica
+
+Lineas de campo : se tiene que entregar los punto s de la cuadrícula
+
+Gráficas de contorno: se le da los valores en x y y y después una matriz de los valores en y.
+
+Witget??? animaciones
+
+**Ejemplo**
+interacción de 3 cuerpos. 
+Se tiene un archivo en csv para poder ller en python. Primero se resuelven las ecuaciones con Mathemática. Para eso se definen las interacciones y se usa fsolve, a la cual se le tienen que dar las condiciones iniciales y por supuesto, las ecuaciones diferenciales. Para lo primero se utiliza un artículo de .... También se tiene que dar el periodo. Lo que se obtienen son funciones interpolación. Con la función output se puede hacer el archivo csv 
+##MAKE
