@@ -200,4 +200,13 @@ Witget??? animaciones
 **Ejemplo**
 interacción de 3 cuerpos. 
 Se tiene un archivo en csv para poder ller en python. Primero se resuelven las ecuaciones con Mathemática. Para eso se definen las interacciones y se usa fsolve, a la cual se le tienen que dar las condiciones iniciales y por supuesto, las ecuaciones diferenciales. Para lo primero se utiliza un artículo de .... También se tiene que dar el periodo. Lo que se obtienen son funciones interpolación. Con la función output se puede hacer el archivo csv 
+
+from matpotlib import animation 
+se hacen arreglos que tienen como coordenadas las variables y el tiempo
+Se puede guardar en un video.
+ver ejemplo---
+
+
+heat equation : con condiciones de frontera
+Se puede ir barriendo por cada punto de la plata, promediar e actualizar el arreglo. 
 ##MAKE
