@@ -209,4 +209,7 @@ ver ejemplo---
 
 heat equation : con condiciones de frontera
 Se puede ir barriendo por cada punto de la plata, promediar e actualizar el arreglo. 
-##MAKE
+##Hands on 
+###Make 
+1. Resumen básico.
+2. 
