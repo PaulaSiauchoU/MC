@@ -1,0 +1,15 @@
+#!/bin/bash
+#Grupo de trabajo con Arturo Velasquez
+#archivo de limpieza para el punto 3c 
+#Se elimina todo lo que diga "Page" y luego, todos los n
+sed 's/Page//g' inicial.txt | sed 's/[0-9]//g' >inicial2.txt
+
+#sed ':a;N;$!ba;s/\n/ /g' inicial2.txt >inicial3.txt
+perl -p -e 's/\n/ /' inicial2.txt >inicial3.txt
+
+sed 's/ //g' inicial3.txt > inicial4.txt
+
+
+
+
+

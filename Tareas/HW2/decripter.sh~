@@ -1,0 +1,32 @@
+#!/bin/bash 
+for i in {1..10}
+do
+./flip.sh z v $1 >>$1
+./flip.sh y h $1 >>$1
+./flip.sh x p $1 >>$1
+./flip.sh w u $1 >>$1
+./flip.sh v z $1 >>$1
+./flip.sh u s $1 >>$1
+./flip.sh t f $1 >>$1
+./flip.sh s g $1 >>$1
+./flip.sh r x $1 >>$1
+./flip.sh q e $1 >>$1
+./flip.sh p d $1 >>$1
+./flip.sh o r $1 >>$1
+./flip.sh n m $1 >>$1
+./flip.sh m b $1 >>$1
+./flip.sh l j $1 >>$1
+./flip.sh k a $1 >>$1
+./flip.sh j c $1 >>$1
+./flip.sh i y $1 >>$1
+./flip.sh h k $1 >>$1
+./flip.sh g t $1 >>$1
+./flip.sh f q $1 >>$1
+./flip.sh e o $1 >>$1
+./flip.sh d l $1 >>$1
+./flip.sh c w $1 >>$1
+./flip.sh b n $1 >>$1
+./flip.sh a i $1 >>$1
+done
+
+cat $1
