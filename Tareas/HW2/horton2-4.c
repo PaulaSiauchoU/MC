@@ -4,7 +4,8 @@ int main(void)
 {
 
 /*Inicializa las variables*/
-	float pay = 0.0, hours = 0.0,  cents = 0.0, average = 0.0;    		int bucks = 0;
+	float pay = 0.0, hours = 0.0,  cents = 0.0, average = 0.0;    		
+	int bucks = 0;
 
 /*se pide el valor para el pago semanal*/
 	printf("\nIntrodusca el pago semanal: ");	
