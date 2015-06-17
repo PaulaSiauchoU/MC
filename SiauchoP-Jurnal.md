@@ -1,3 +1,5 @@
+
+ 
 #Primera clase 
 Hola !!! Este es el inicio del curso de **Metodos Computacionales**.
 
@@ -34,7 +36,7 @@ Una de las ventajas de usar GitHub es que se pueden guardar y acceder a todas la
 
 Después usamos varios comandos útiles para manipular documentos desde la terminal:
 
-+ Hacer un journal
++ Hacer un journal, o en general hacer un archivo en un editor de texto (emacs en este caso)
 
 `emacs SiauchoP-Jurnal.md`
 
@@ -73,7 +75,8 @@ Crear archivo con varios outputs
 
 **sed**
 
-cambiar a por b 
+cambiar a por b, la sintáxis es 
+`sed 'a/lo quiero reemplazar/por lo que quiero reemplazar/g' archivo`
 
 **curl** 
 
@@ -113,7 +116,8 @@ Todo lo que esté a la dcha de algo `sed 's/algo.*//g'`
  set xdata time
  set timefmt "%m/%d/%y"
  plot 'archivo' using 1:2 with lines #graficar con líneas
-  ###Ejemplo: información sobre la expansión del universo
+ 
+ ###Ejemplo: información sobre la expansión del universo
   
 Es un archivo de Mathematica  
 Nombre----dist parsecs---velocidad
@@ -213,3 +217,86 @@ Se puede ir barriendo por cada punto de la plata, promediar e actualizar el arre
 ###Make 
 1. Resumen básico.
 2. 
+
+#martes, 16. junio 2015 
+
+##Interpolación. 
+Conocer cómo se comporta cierto sisitema en cualquier punto dentro del rango. Se utiliza para rellenar datos faltantes.
+Ejemplo: geología-termocupla. Se podría hacer entre cada punto con una línea (i lineal). Otra opción, si se tienen k+1 puntos se podría ontener un polinomio de grado k que pase por todos los puntos. También se pueden hacer splines cúbicos y cuadrados. 
+~~~
+import numpy as plt
+import matplotbil as mpl
+import matplotlib.pyplot as plt 
+import os
+%matplotlib inline
+from Ipython.display import HTML
+from scipy import interpolate
+~~~
+el polinomio es una productoria en j distinto de k (x-xi)/(xj-xi)
+(...qué es la interpolación de Lagrange)
+
+Se quiere una funcipon que entregue los parámetros de Lagerange y otra que haga la suma.
+
+~~~
+def lagrangep(absc,j):
+	pol=np.poly1d([0])
+		for in 
+
+~~~
+L0 ,valor uno
+L1, en la primera absisa se anula, enla 1 vale y en las otras ... ect.
+
+la gráfica azul sola es la interpolación.
+
+
+
+###Cubic spline
+La idea es ajustar la pendiente y la segunda derivada en los nudos. 
+`help(imterpolate.interpld)`
+
+`sale = archivo(se puede poner url`
+~~~
+sale_interpol_lin
+sale_interplo_nearest
+sale_interplo_zero # mantiene el valor ḿiestras llega a un punto en e que cambia
+~~~
+**Interpolación en varias dimensiones**
+mgrid[inicio:final:numero de pasos entre el inicio y el fina]: se le entregan los valores en cada eje y se producen arreglos bidimensionales con lo que se pueden evaluar las finciones que se quieran.  
+
+después con la función interpolate se evaluan otros unptos según la función 
+
+para que se vean los distintos colores se utiliza plt.pcolor(x,y,z)
+
+###Métodos de mínimos cuadrados. 
+
+Encontrar los parámetros tal que minimicen la suma de mín cuad. 
+np.polyfit #ajuste es un polinomio
+
+curve_fit #ajuste no es un polinomio, por eje para órbitas. Se tiene que definir un afunción cuyo primer parámetro es la var indep y otra en la que estén el resto de param.  blue.csv y red.csv son datos del lab de óptica cuántica de datos de rotación de los polarizadores. 
+
+grigg.csv posición en el plano de un cometa. Se quieres calcular su órbita
+
+
+
+
+#miércoles, 17. junio 2015
+
+Cómo hacer ramas de un repositorio y manipularlas
+git branch --- se ven las ramas 
+Para cambiar de rama
+git checkout rama 1
+Hay que hacer commit para ver los cambios. 
+
+
+Hacer un merge : ufsionar las dos ramas 
+ git tag : poner "banderitas en el repositorio"
+Crear un tag : git tag .a
+
+
+Análisis de Fourier 
+
+Una serie de fourier satisface las condiciones de Dirichlet (completar con el Tellez)
+
+##Hands ON 8 
+
+
