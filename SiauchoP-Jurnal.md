@@ -104,40 +104,45 @@ Entrar a otro computador
 para pasar archivos de un lugar a otro
 
 #Miércoles 3 de junio
-Vamos a ver más ejemplos de gnuplot
-http://www.exchange-rates.org/history/COP/USD/T
-Quitar html del código
 
-Quitar letras `[a-zA-Z]`
-Todo lo que esté a la dcha de algo `sed 's/algo.*//g'`
- **Graficar!!**
- 
+En esta clase se continuaron con los ejemplos de GNUplot. 
+En primer lugar se escogieron datos sobre la historia de las tasas de cambio del sitio :
+http://www.exchange-rates.org/history/COP/USD/T
+A continuación, se quitó mediante expresiones regulares el html del código, letras que no eran de interés `[a-zA-Z]` y otros aspectos del código que no eran de relevancia como ciertos carácteres que estaban a la derecha o a la izquierda de algo `sed 's/algo.*//g'`. Por último,  **¡¡Graficar!!**
+
+~~~
  gnuplot> datafile separaror "," 
  set xdata time
  set timefmt "%m/%d/%y"
  plot 'archivo' using 1:2 with lines #graficar con líneas
- 
- ###Ejemplo: información sobre la expansión del universo
+~~~
+####Ejemplo: información sobre la expansión del universo
   
-Es un archivo de Mathematica  
-Nombre----dist parsecs---velocidad
-set datafile separator ","
-**añandir cosas a  una gráfica**
-`replot blabla(por ejemplo una gráfica sobre otra)`
++ Se trabajó a partir de un archivo de Mathematica  el cuál estaba oragnizado de la siguiente manera: 
 
-**hacer fit**
-y(x)=m*x + b
-fit y(x) archivop using 2:3 via m, b
+| Nombre | dist parsecs | velocidad |
+
++ Después en gnuplot se especificó que el domumento era de tipo cvs usando el comando
+`set datafile separator ","`
++ Se usaron otros comandos para añadir aspectos a una gráfica como hacer dos gráficas al tiempo 
+`replot laotragrafica`
++ por último se hizo un fit a una gráfica que tenía la forma de 
+*y(x)=m*x + b* mediante el código 
+`fit y(x) archivop using 2:3 via m, b`
 ##Introducción a C
 comparar dos códigos, uno en bash y otro en C..mirar carpta de ejemplos
 
 En la mayoría de los casos la línea se acaba con ";"
-compilar: `gcc -o nombre.out nombre.c`
-la o sirve para que se cambie el archivo por defecto (a.out) por el de interés.
+Para compilar se usa:
+ `gcc -o nombre.out nombre.c`
+la *o* sirve para que se cambie el archivo por defecto (a.out) por el de interés.
 
 # 5 de junio de 2015
-Primero se habló de los métodos de Montecarlo, (qué son), y se aplicó sobre una esfera. Coordenadas en X, Y y Z y después normalizar
-Se va a tenrr un ciclo en el que cada iteración se genera un número aleatorio en cada coordenada. Después hallar la norma del vector sobre R3, para eso se hace aritmética en C. Después se guarda un arch en csv y después se grafica con GNU plot.
+
+Primero se habló de los métodos de Montecarlo, los cuales se usan para allar soluciones aproximadas a sistemas muy complejos, y se aplicó sobre una esfera. Se definieron las coordenadas en X, Y y Z y después  se normalizaron.
+
+Se obtuvo un ciclo en el que cada iteración se genera un número aleatorio en cada coordenada. Después hallar la norma del vector sobre R3, para eso se hace aritmética en C. Después se guarda un arch en csv y después se grafica con GNU plot.
+
 ##Resolver el tercer punto del laboratorio
 Se comienza con un cógido de distribución gaussiana
 al código se le añanade librería de input y out put `#include <stdio>` 
@@ -153,8 +158,8 @@ int main (void)
  for( ; i <= num; i++)
  {
    x=gaussrand();
-   y
-   x
+   y=gaussrand()
+   x=gaussrand()
    #calcular la norma sqrt(raiz cuad)
    norm=sqtr(x*xy*y*+z*z)
    x=x/norm:
@@ -186,32 +191,36 @@ Ver diap
 **Python** 
 
 # 9 de junio de 2015
-Para saber los estilos disponibles
-pylab inline #no se pueden hacer animaciones con esto
+###Styles en Python
+
++ Para saber los estilos disponibles
+`pylab inline #no se pueden hacer animaciones con esto`
 estilos.style.disponible
 print estilos 
 usar un estilo : style.use(estilos[i])
 
-Para usar en una sóla gráfica:
++ Para usar en una sóla gráfica:
 with xkcd(): código gŕfica
 
-Lineas de campo : se tiene que entregar los punto s de la cuadrícula
+Lineas de campo (notebook de ejemplo): se tiene que entregar los punto s de la cuadrícula
 
 Gráficas de contorno: se le da los valores en x y y y después una matriz de los valores en y.
 
 Witget??? animaciones
 
-**Ejemplo**
-interacción de 3 cuerpos. 
-Se tiene un archivo en csv para poder ller en python. Primero se resuelven las ecuaciones con Mathemática. Para eso se definen las interacciones y se usa fsolve, a la cual se le tienen que dar las condiciones iniciales y por supuesto, las ecuaciones diferenciales. Para lo primero se utiliza un artículo de .... También se tiene que dar el periodo. Lo que se obtienen son funciones interpolación. Con la función output se puede hacer el archivo csv 
+###Ejemplo
 
-from matpotlib import animation 
-se hacen arreglos que tienen como coordenadas las variables y el tiempo
-Se puede guardar en un video.
-ver ejemplo---
+####Interacción de 3 cuerpos. 
+----------------------------------
+Se tiene un archivo en csv para poder leer en Python. Primero se resuelven las ecuaciones con Mathematica. Para eso se definen las interacciones y se usa fsolve, a la cual se le tienen que dar las condiciones iniciales , el período y por supuesto, las ecuaciones diferenciales. Para lo primero se utiliza un artículo científico de donde se sacan los datos teóricos. 
+Se obtienen son funciones interpolación. Con la función output se puede hacer el archivo csv 
+Para hacer la animación se tiene que importar el siguiente paquete.
+`from matpotlib import animation `
+Se hacen arreglos que tienen como coordenadas las variables y el tiempo
+Además la animación **se puede guardar** en un video.
 
 
-heat equation : con condiciones de frontera
+**Heat equation** : con condiciones de frontera
 Se puede ir barriendo por cada punto de la plata, promediar e actualizar el arreglo. 
 ##Hands on 
 ###Make 
@@ -232,8 +241,9 @@ import os
 from Ipython.display import HTML
 from scipy import interpolate
 ~~~
-el polinomio es una productoria en j distinto de k (x-xi)/(xj-xi)
-(...qué es la interpolación de Lagrange)
+
+Se usará el método de interpolación de Lagrange que busca un polinomio que se acople a una serie de puntos dados. El polinomio es una productoria en j distinto de k (x-xi)/(xj-xi)
+
 
 Se quiere una funcipon que entregue los parámetros de Lagerange y otra que haga la suma.
 
@@ -299,4 +309,30 @@ Una serie de fourier satisface las condiciones de Dirichlet (completar con el Te
 
 ##Hands ON 8 
 
+#viernes, 19. junio 2015 
 
+~~~
+#primero se importa todo lo necesario desde el paquete de la transformada de Fourier de Python
+from scipy.ffpack import ifft, fft,fftfrec
+N=2**10
+f=100.0
+dt=1./f/N
+t=np.
+~~~
+En muchas ocasiones es muy útil usar la Transformada discreta de Fourier 
+
+Se puede hacer tratado de imágnenes con la transformada de Fourier discreta. Para eso, 
+
+1. Se debe tener la imagen en un formato que pueda leer Python, como una matriz con el valor de color de cada pixel. 
+2. Se aplica la transformada discreta de Fourier
+3. Se hace la transformada inversa.
+
+
+*Dato curioso* `misc.lena` trae a Lena.
+
+
+![ ](/home/paula/MC/Imágenes/lena.jpg  "Lena ")
+
+para poner la imagen en escala de grises se usa el código 
+`plt.imshow(lena,cmap=plt.cm.gray)` 
+También se vió un ejemplo en el que se disminuía el peso de la imagen. Para ello se fijan muchos elemento de la distribución de Fourier a 0. En este caso para eliminar los detalles se eliminan las frecuencias altas. 
