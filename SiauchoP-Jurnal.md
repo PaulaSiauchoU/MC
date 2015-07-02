@@ -103,6 +103,28 @@ Entrar a otro computador
 
 para pasar archivos de un lugar a otro
 
+##Hands-on 2
+###Expresiones regulares 
+1. Expresión regular:
+`^yyyy\n`
+3.   
+~~~
+#!/bin/bash
+
+curl http://pi.karmona.com >brut.txt
+
+sed 's/<BR>//g' brut.txt > uno.txt
+
+sed 's/<\/B>//g' uno.txt > dos.txt
+
+sed 's/<B>//g' dos.txt > tres.txt
+
+sed 's/<HTML><TITLE>Pi - 10 Million Digits @ http:\/\/Pi.Karmona.com<\/TITLE><BODY><BR>
+<CENTER><B>Pi - 10 Million Digits<\/B><BR><BR><BR>//g' tres.txt > cuatro.txt
+
+sed 's/<BR><BR><\/center><\/BODY><\/HTML>//g' cuatro.txt > PIslices.dat
+
+~~~
 #Miércoles 3 de junio
 
 En esta clase se continuaron con los ejemplos de GNUplot. 
@@ -171,8 +193,10 @@ int main (void)
    
 ~~~
 para compilar
+`gcc nombre.c`
+Esto crea un archivo llamado a.out que se ejecuta 
 para ejecutar 
-
+`/a.out`
 Graficar:
 
 entrar a gnuplor
@@ -184,11 +208,19 @@ splot "randomsherical.csv" usind 1:2:3
 set view equal xyz
 ~~~
 
-## Breve repaso de Python 
-Ver diap
+####Breve repaso de Python :
+
+**Python** es un lenguaje orientado a objetos cuya objetivo es hacer la programación más sencilla. Un código en python se puede hacer desde un Anaconda, la cual es parecida a la terminal o desde ipython. Éste último utiliza un recurso llamado Notebook en el cual se pueden correr bloques de código distintos lo cual es útil para saber cómo funciona cierta parte del código o para identificar un error particular. 
 
 ##Hands on
-**Python** 
+**Make**
+Esta herramienta, de software libre, permite crear ejecutables de un programa a partir de su código fuente. Esta característica permite gastar menos poder compuracional y repatir mejor el trabajo a la máquina ya que se automatizan muchos procesos. 
+Todo *Makefile* tiene que tener el archivo objetivo y el archivo del cual se va a sacar la información(fuente). Además , en la siguiente línea se escribe la orden, la cual debe estar indentada tal y como se muestra a continuación  
+~~~
+archivoObjetivo : archivoFuente
+	orden 
+~~~
+
 
 # 9 de junio de 2015
 ###Styles en Python
@@ -200,13 +232,13 @@ print estilos
 usar un estilo : style.use(estilos[i])
 
 + Para usar en una sóla gráfica:
-with xkcd(): código gŕfica
+with xkcd(): código gráfica
 
 Lineas de campo (notebook de ejemplo): se tiene que entregar los punto s de la cuadrícula
 
 Gráficas de contorno: se le da los valores en x y y y después una matriz de los valores en y.
 
-Witget??? animaciones
+Witget: animaciones
 
 ###Ejemplo
 
@@ -223,9 +255,30 @@ Además la animación **se puede guardar** en un video.
 **Heat equation** : con condiciones de frontera
 Se puede ir barriendo por cada punto de la plata, promediar e actualizar el arreglo. 
 ##Hands on 
-###Make 
-1. Resumen básico.
-2. 
+###Proyecto. 
+Para el proyecto final he pensado en integrar algún problema de Microbiología, mi doble programa,  para resolverlo mediente algún método computacional visto en clase. Sin embargo, aún no tengo claro el problema que quiero plantear. He pensado en buscar datos biológicos interesantes mediante comandos de la terminal como curl y posteriormente procesar y limpiar los datos con los cmandos vistos para bash. 
+
+
+###HandsOn5
+~~~
+import matplotlib.pyplot as plt
+import numpy as np
+
+a = np.linspace(1,25,25)
+b = np.linspace(2,26,25)
+t = np.linspace(0,2*np.pi,200)
+
+plt.figure(figsize=(8, 8))
+plt.subplots_adjust(hspace=0.00, wspace=0.00)
+for i in range(0,25):
+    x = (np.sin(a[i]*t) + (np.pi/2))
+    y = np.sin(b[i]*t)
+    plt.subplot(5,5,i+1)
+    plt.plot(x,y,color='blueviolet')
+    plt.axis("off")
+plt.savefig("lissajous.png", format='png',bbox_inches='tight',transparent=False)
+~~~
+
 
 #martes, 16. junio 2015 
 
@@ -250,7 +303,7 @@ Se quiere una funcipon que entregue los parámetros de Lagerange y otra que haga
 ~~~
 def lagrangep(absc,j):
 	pol=np.poly1d([0])
-		for in 
+		for in range
 
 ~~~
 L0 ,valor uno
@@ -336,3 +389,69 @@ Se puede hacer tratado de imágnenes con la transformada de Fourier discreta. Pa
 para poner la imagen en escala de grises se usa el código 
 `plt.imshow(lena,cmap=plt.cm.gray)` 
 También se vió un ejemplo en el que se disminuía el peso de la imagen. Para ello se fijan muchos elemento de la distribución de Fourier a 0. En este caso para eliminar los detalles se eliminan las frecuencias altas. 
+
+#martes, 23. junio 2015
+
+##Derivadas numéricas. 
+
+Definición de derivada
+
+Cuando se utilizan este tipo de métodos se tienen que calcular el error numérico, que disminuye a medida que lo hace el step size. 
+Hay métodos que disminuyen en el error. Usar fw difference o bw difference. Otro método es diferencias centrales:Este tipo de error también aumenta en h pero a medida que se disminuye el step size el eroor disminuye el cuadrado. 
+
+morado: verdadera derivada:
+rojo: bw diff
+azul: fw diff
+azul aguamarina: diferencias centrales. 
+
+Nueva función: logspace: lo mismo que lin space pero en esacal logarítmica
+subs: coge algo y lo reemplaza
+
+Para más detalles ver el libro de Física comptacional de Shere...
+
+##HandsOn 10
+ponerrr enlace 
+#miércoles, 24. junio 2015 
+
+Continuación de integración numérica
+###Regla del trapecio. 
+###Regla de Simpson 
+####Regla compuesta 
+
+Se quiere saber cómo escala el error cuanod se aumentaba el step size igual que en la clase pasada, la regla de Simpson lo hace en h⁴ 
+
+sepa losraices
+eso le dice las absisas de los polinomios de l
+y  con los pesos se calcula la integral. 
+
+
+
+#viernes, 26. junio 2015
+##Ecuaciones diferenciales ODE
+
+Python no reconoce diferenciales de tiempo, hayq eu discretizarlo. 
+se usa y(n+1)=y'+y(n+1)
+
+###Regla del punto medio. 
+###Runge-kutta.
+Se quiere utilizar la derivada en tres puntos, no dos como en el cado pasado. Además se quiere utilizar la egla de Simpson 
+
+
+####Problema de Keppler 
+
+
+
+#martes, 30. junio 2015 
+
+La idea es utilizar dos estimados para el siguiente paso en la ED y con eso calcular el error y si éste llega a ser el muy grande se reduce el time step. 
+
+eloc=abs(ydeltat/2-ydeltat)/30. El 30 sale de hacer un análisis del estimado 
+
+En el cuaderno de ejemplo el primer ejemplo tiene como solución cículos. donde dY/dt=(Y[1],-Y[0])
+
+
+Para reducir el error: definir el límite del **error global**. Si el error global es muy grande baja el local aumentando el número de iteraciones (aquí el time step es ina variable.)
+##Multistep methods
++ Adam-Bashfort: se calculan varios pasos (tsubn), se interpola el polinomio con esos puntos y con eso de halla el deltay. dy=(h/12)*(23fn-16fn-1+5fn-2)
+
+++ Ejemplo: pédulo con Hamiltoniano. Se oltienen las ecuaciones diferenciales para p y q
