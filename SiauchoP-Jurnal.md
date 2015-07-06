@@ -455,3 +455,9 @@ Para reducir el error: definir el límite del **error global**. Si el error glob
 + Adam-Bashfort: se calculan varios pasos (tsubn), se interpola el polinomio con esos puntos y con eso de halla el deltay. dy=(h/12)*(23fn-16fn-1+5fn-2)
 
 ++ Ejemplo: pédulo con Hamiltoniano. Se oltienen las ecuaciones diferenciales para p y q
+
+
+#viernes, 03. julio 2015
+##Derivadas parciales 
+deltat/deltax² tiene que ser mejor a un medio o si no no funciona el método (explicación en la siguiente clase)
+
