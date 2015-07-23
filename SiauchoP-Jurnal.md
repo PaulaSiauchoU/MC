@@ -125,6 +125,21 @@ sed 's/<HTML><TITLE>Pi - 10 Million Digits @ http:\/\/Pi.Karmona.com<\/TITLE><BO
 sed 's/<BR><BR><\/center><\/BODY><\/HTML>//g' cuatro.txt > PIslices.dat
 
 ~~~
+4. Jovian stellites
+
+~~~
+#Se hace Un script de Bash para no tener que escribir todo en GNUPlot cada vez que se quiera implementar el método.  Para eso se utiliza EOF 
+
+#!/bin/bash
+gnuplot<<EOF
+set term dumb #Para que salga en la terminal
+set datafile separator ","
+set xrange [1:350]
+set yrange [0:780]
+plot "joviansatellites.csv" using 2:3 with linesp
+EOF
+
+~~~
 #Miércoles 3 de junio
 
 En esta clase se continuaron con los ejemplos de GNUplot. 
@@ -197,9 +212,9 @@ para compilar
 Esto crea un archivo llamado a.out que se ejecuta 
 para ejecutar 
 `/a.out`
-Graficar:
+Para graficar:
 
-entrar a gnuplor
+entrar a gnuplot
 
 ~~~
 set datafile separator ","
@@ -210,9 +225,9 @@ set view equal xyz
 
 ####Breve repaso de Python :
 
-**Python** es un lenguaje orientado a objetos cuya objetivo es hacer la programación más sencilla. Un código en python se puede hacer desde un Anaconda, la cual es parecida a la terminal o desde ipython. Éste último utiliza un recurso llamado Notebook en el cual se pueden correr bloques de código distintos lo cual es útil para saber cómo funciona cierta parte del código o para identificar un error particular. 
+**Python** es un lenguaje orientado a objetos cuya objetivo es hacer la programación más sencilla. Un código en python se puede hacer desde Anaconda, la cual es parecida a la terminal, o desde ipython. Éste último utiliza un recurso llamado Notebook en el cual se pueden correr bloques de código distintos lo cual es útil para saber cómo funciona cierta parte del código o para identificar un error particular. 
 
-##Hands on
+##Hands on 3- Make 
 **Make**
 Esta herramienta, de software libre, permite crear ejecutables de un programa a partir de su código fuente. Esta característica permite gastar menos poder compuracional y repatir mejor el trabajo a la máquina ya que se automatizan muchos procesos. 
 Todo *Makefile* tiene que tener el archivo objetivo y el archivo del cual se va a sacar la información(fuente). Además , en la siguiente línea se escribe la orden, la cual debe estar indentada tal y como se muestra a continuación  
@@ -230,13 +245,13 @@ archivoObjetivo : archivoFuente
 estilos.style.disponible
 print estilos 
 usar un estilo : style.use(estilos[i])
-
-+ Para usar en una sóla gráfica:
-with xkcd(): código gráfica
+**Nota**:Hay que tener Python  y iPython actualizados ya que estos paquetes son relativamente nuevos. 
++ Un ejemplo muy original de los estilos disponibles en este paquete:
+`with xkcd(): código gráfica`
 
 Lineas de campo (notebook de ejemplo): se tiene que entregar los punto s de la cuadrícula
 
-Gráficas de contorno: se le da los valores en x y y y después una matriz de los valores en y.
+Gráficas de contorno: se le da los valores en *x* e *y* y  después una matriz de los valores en *y*.
 
 Witget: animaciones
 
@@ -254,16 +269,15 @@ Además la animación **se puede guardar** en un video.
 
 **Heat equation** : con condiciones de frontera
 Se puede ir barriendo por cada punto de la plata, promediar e actualizar el arreglo. 
-##Hands on 
+##Hands on 4
 ###Proyecto. 
 Para el proyecto final he pensado en integrar algún problema de Microbiología, mi doble programa,  para resolverlo mediente algún método computacional visto en clase. Sin embargo, aún no tengo claro el problema que quiero plantear. He pensado en buscar datos biológicos interesantes mediante comandos de la terminal como curl y posteriormente procesar y limpiar los datos con los cmandos vistos para bash. 
 
 
-###HandsOn5
+###HandsOn5- Figuras de Lisajouss
 ~~~
 import matplotlib.pyplot as plt
 import numpy as np
-
 a = np.linspace(1,25,25)
 b = np.linspace(2,26,25)
 t = np.linspace(0,2*np.pi,200)
@@ -278,7 +292,7 @@ for i in range(0,25):
     plt.axis("off")
 plt.savefig("lissajous.png", format='png',bbox_inches='tight',transparent=False)
 ~~~
-
+![ ](https://github.com/PaulaSiauchoU/MC/blob/master/Im%C3%A1genes/lissajous.png)
 
 #martes, 16. junio 2015 
 
@@ -330,6 +344,7 @@ después con la función interpolate se evaluan otros unptos según la función
 
 para que se vean los distintos colores se utiliza plt.pcolor(x,y,z)
 
+
 ###Métodos de mínimos cuadrados. 
 
 Encontrar los parámetros tal que minimicen la suma de mín cuad. 
@@ -339,8 +354,44 @@ curve_fit #ajuste no es un polinomio, por eje para órbitas. Se tiene que defini
 
 grigg.csv posición en el plano de un cometa. Se quieres calcular su órbita
 
+##Hands On 7
+~~~
+%pylab inline
+import numpy as np
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import os
+%matplotlib inline
+from scipy import interpolate
+from scipy.optimize import curve_fit
+~~~
 
+~~~
+x = numpy.array([2.3,2.8,3.2,3.7,4.3]) #en metros
+b = numpy.array([34745,19689,12594,7982,5822]) #en uT
+b2 = b*(pow(10,-6))
+x3=x*x*x
+ajuste=np.polyfit(b,x3,2)
+~~~
 
+~~~
+plt.figure(figsize=(10,5))
+plt.plot(x,b,"o",ms=4)
+X=[0]*100
+Y=[0]*100
+print ajuste
+for i in range(100):
+    X[i]=i*0.01
+    Y[i]=ajuste[0]+ajuste[1]*X[i]+X[i]*X[i]*ajuste[2]
+plt.plot(X, Y)
+
+savefig('ho7.png')
+~~~
+
+Como resultado se obtuvo la siguiente figura. 
+![ ]('https://github.com/PaulaSiauchoU/MC/blob/master/Im%C3%A1genes/lissajous.png')
+
+###Proyecto
 
 #miércoles, 17. junio 2015
 
@@ -358,10 +409,22 @@ Crear un tag : git tag .a
 
 Análisis de Fourier 
 
-Una serie de fourier satisface las condiciones de Dirichlet (completar con el Tellez)
+Una serie de fourier satisface las condiciones de Dirichlet 
 
 ##Hands ON 8 
 
+~~~
+from scipy.optimize import  root
+
+R  = 422000
+M1 = 1.898E27
+M2 = 8.931E22
+
+def sol(x):
+    return M2/(x**2) + (M1+M2)*(M1*R/(M1+M2) - x)/(R**3) - M1/((R-x)*(R-x))
+
+print(root(func,R/3))
+~~~
 #viernes, 19. junio 2015 
 
 ~~~
@@ -384,8 +447,7 @@ Se puede hacer tratado de imágnenes con la transformada de Fourier discreta. Pa
 *Dato curioso* `misc.lena` trae a Lena.
 
 
-![ ](/home/paula/MC/Imágenes/lena.jpg  "Lena ")
-
+![ ](https://github.com/PaulaSiauchoU/MC/blob/master/Im%C3%A1genes/lena.png)
 para poner la imagen en escala de grises se usa el código 
 `plt.imshow(lena,cmap=plt.cm.gray)` 
 También se vió un ejemplo en el que se disminuía el peso de la imagen. Para ello se fijan muchos elemento de la distribución de Fourier a 0. En este caso para eliminar los detalles se eliminan las frecuencias altas. 
@@ -410,7 +472,7 @@ subs: coge algo y lo reemplaza
 Para más detalles ver el libro de Física comptacional de Shere...
 
 ##HandsOn 10
-ponerrr enlace 
+https://github.com/PaulaSiauchoU/MC/blob/master/HandsON/HandsOn10.ipynb
 #miércoles, 24. junio 2015 
 
 Continuación de integración numérica
@@ -461,3 +523,21 @@ Para reducir el error: definir el límite del **error global**. Si el error glob
 ##Derivadas parciales 
 deltat/deltax² tiene que ser mejor a un medio o si no no funciona el método (explicación en la siguiente clase)
 
+#miércoles, 08. julio 2015
+Ec. de Schrodinger
+
+##Hands On 13
+
+
+from sympy import *
+init_printing(use_unicode=True)
+~~~
+t,fn,fn1,fn2,fn3,h,tn,tn1,tn2,tn3=symbols('t f_{n0} f_{n1} f_{n2} f_{n3} h t_{n0} t_{n1} t_{n2} t_{n3}')
+#Orden 2
+tn1=tn-h
+p=fn1*(t-tn)/(tn1-tn)+fn*(t-tn1)/(tn-tn1)
+deltay=integrate(p,(t,tn,tn+h))
+simplify(deltay)
+~~~
+Link proyecto final 
+https://github.com/PaulaSiauchoU/MC/blob/master/Proyecto%20final/Proyecto%20final.md
