@@ -389,7 +389,7 @@ savefig('ho7.png')
 ~~~
 
 Como resultado se obtuvo la siguiente figura. 
-![ ]('https://github.com/PaulaSiauchoU/MC/blob/master/Im%C3%A1genes/lissajous.png')
+![ ]('https://github.com/PaulaSiauchoU/MC/blob/master/Im%C3%A1genes/ho7.png')
 
 ###Proyecto
 
@@ -447,7 +447,7 @@ Se puede hacer tratado de imágnenes con la transformada de Fourier discreta. Pa
 *Dato curioso* `misc.lena` trae a Lena.
 
 
-![ ](https://github.com/PaulaSiauchoU/MC/blob/master/Im%C3%A1genes/lena.png)
+![ ](https://github.com/PaulaSiauchoU/MC/blob/master/Im%C3%A1genes/lena.jpg)
 para poner la imagen en escala de grises se usa el código 
 `plt.imshow(lena,cmap=plt.cm.gray)` 
 También se vió un ejemplo en el que se disminuía el peso de la imagen. Para ello se fijan muchos elemento de la distribución de Fourier a 0. En este caso para eliminar los detalles se eliminan las frecuencias altas. 
